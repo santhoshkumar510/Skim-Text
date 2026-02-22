@@ -13,9 +13,9 @@ The goal of the project is to build a NLP model that can classify sentences in m
 **2.Model Building and Training Experiments:**
 * Model 0 (Baseline): A TF-IDF vectorizer combined with a Multinomial Naive Bayes classifier is used for initial evaluation.
 * Model 1 (Custom Token Embeddings): A deep model using TextVectorization and a custom Embedding layer, followed by a Conv1D and GlobalAveragePooling1D layer, then a Dense output layer.
-* Model 2 (Pretrained Token Embeddings - BERT): BERT embeddings loaded to create a non-trainable Embedding layer. This is then fed into a Conv1D and GlobalAveragePooling1D layer, followed by a Dense output layer.
+* Model 2 (Pretrained Token Embeddings - GloVe): GloVe 100D embeddings loaded to create a non-trainable Embedding layer. This is then fed into a Conv1D and GlobalAveragePooling1D layer, followed by a Dense output layer.
 * Model 3 (Character Embeddings): A TextVectorization layer is created for characters, followed by a custom Embedding layer, Conv1D, GlobalAveragePooling1D, and a Dense output layer.
-* Model 4 (Hybrid Token + Character Embeddings): This model concatenates the outputs of a token embedding model (using pretrained BERT embeddings) and a character embedding model (using Bidirectional LSTM), feeding the combined features into dense layers for classification.
+* Model 4 (Hybrid Token + Character Embeddings): This model concatenates the outputs of a token embedding model (using pretrained GloVe embeddings) and a character embedding model (using Bidirectional LSTM), feeding the combined features into dense layers for classification.
 * Model 5 (Tribrid: Positional, Character, and Token Embeddings): This advanced model incorporates one-hot encoded line_number and total_lines features, along with pretrained token embeddings and character embeddings (using Bidirectional LSTM), concatenating all features before passing them through dense layers for final classification.
 
 **3.Evaluation:**
@@ -30,7 +30,7 @@ The goal of the project is to build a NLP model that can classify sentences in m
 
 **KEY HIGHLIGHTS:**
 * **Multi-modal Approach:** The project utilizes a sophisticated multi-modal model (Model 5) combining token embeddings, character embeddings, and positional embeddings (line number and total lines) to capture rich contextual information.
-* **Pretrained Embeddings (BERT):** Leverages transfer learning by incorporating pretrained BERT word embeddings to improve the quality of token representations.
+* **Pretrained Embeddings (GloVe):** Leverages transfer learning by incorporating pretrained GloVe word embeddings to improve the quality of token representations.
 Hybrid Architecture: Explores a hybrid deep learning architecture that integrates both convolutional (Conv1D) and recurrent (Bidirectional LSTM) layers for processing different embedding types.
 * **Custom Data Preprocessing:** Implements specialized data preprocessing to extract crucial meta-information like line numbers and total lines within an abstract, which proved to be highly beneficial for model performance.
 * **Comparative Analysis:** Systematically compares the performance of various models, from a classical baseline (TF-IDF + Naive Bayes) to increasingly complex deep learning architectures, demonstrating the progressive improvement with advanced techniques.
