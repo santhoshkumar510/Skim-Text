@@ -11,12 +11,12 @@ The goal of the project is to build a NLP model that can classify sentences in m
 * Text is further processed to split sentences into individual characters for character-level embeddings.
 
 **2.Model Building and Training Experiments:**
-* Model 0 (Baseline): A TF-IDF vectorizer combined with a Multinomial Naive Bayes classifier is used for initial evaluation.
-* Model 1 (Custom Token Embeddings): A deep model using TextVectorization and a custom Embedding layer, followed by a Conv1D and GlobalAveragePooling1D layer, then a Dense output layer.
-* Model 2 (Pretrained Token Embeddings - GloVe): GloVe 100D embeddings loaded to create a non-trainable Embedding layer. This is then fed into a Conv1D and GlobalAveragePooling1D layer, followed by a Dense output layer.
-* Model 3 (Character Embeddings): A TextVectorization layer is created for characters, followed by a custom Embedding layer, Conv1D, GlobalAveragePooling1D, and a Dense output layer.
-* Model 4 (Hybrid Token + Character Embeddings): This model concatenates the outputs of a token embedding model (using pretrained GloVe embeddings) and a character embedding model (using Bidirectional LSTM), feeding the combined features into dense layers for classification.
-* Model 5 (Tribrid: Positional, Character, and Token Embeddings): This advanced model incorporates one-hot encoded line_number and total_lines features, along with pretrained token embeddings and character embeddings (using Bidirectional LSTM), concatenating all features before passing them through dense layers for final classification.
+* **Model 0 (Baseline):** A TF-IDF vectorizer combined with a Multinomial Naive Bayes classifier is used for initial evaluation.
+* **Model 1 (Custom Token Embeddings):** A deep model using TextVectorization and a custom Embedding layer, followed by a Conv1D and GlobalAveragePooling1D layer, then a Dense output layer.
+* **Model 2 (Pretrained Token Embeddings - GloVe):** GloVe 100D embeddings loaded to create a non-trainable Embedding layer. This is then fed into a Conv1D and GlobalAveragePooling1D layer, followed by a Dense output layer.
+* **Model 3 (Character Embeddings):** A TextVectorization layer is created for characters, followed by a custom Embedding layer, Conv1D, GlobalAveragePooling1D, and a Dense output layer.
+* **Model 4 (Hybrid Token + Character Embeddings):** This model concatenates the outputs of a token embedding model (using pretrained GloVe embeddings) and a character embedding model (using Bidirectional LSTM), feeding the combined features into dense layers for classification.
+* **Model 5 (Tribrid: Positional, Character, and Token Embeddings):** This advanced model incorporates one-hot encoded line_number and total_lines features, along with pretrained token embeddings and character embeddings (using Bidirectional LSTM), concatenating all features before passing them through dense layers for final classification.
 
 **3.Evaluation:**
 * Each model's performance is evaluated using accuracy, precision, recall, and F1-score on the test set.
